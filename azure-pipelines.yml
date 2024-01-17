@@ -38,3 +38,12 @@ steps:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
     publishLocation: 'Container'
+- task: SonarQubePrepare@5
+  inputs:
+        SonarQube: 'SonarQube'
+        scannerMode: 'MSBuild'
+        projectKey: 'DemoMVCApp_DemoMVCApp_AY0WE6PhtePgNUo7pXvT'
+        projectName: 'DemoMVCApp'
+- task: SonarQubePublish@5
+  inputs:
+          pollingTimeoutSec: '300'
